@@ -1,7 +1,8 @@
 const express = require('express');
+const minimist = require('miniimist');
 const app = express();
 
-const args = require('minimist')(process.argv.slice(2));
+const args = minimist(process.argv.slice(2));
 
 
 const HTTP_PORT = args["port"] || 50000;
@@ -31,7 +32,7 @@ app.get('/app/flip/', (req, res) => {
     const result = coinFlip();
 
     if (result === "heads"){
-        res.json({"flip": "heads"});
+        res.json({"flip":"heads"});
     } else{
         res.json({"flip":"tails"});
     }
@@ -47,8 +48,9 @@ app.get('/app/flips/:number', (req, res) => {
 
 app.get('/app/flip/call/heads', (req, res) => {
     res.statusCode = 200;
+    res.statusMessage = 'OK'
 
-    const result = flipACoin("heads");
+    const result = flipACoin('heads');
 
     res.json(result)
 
@@ -56,8 +58,9 @@ app.get('/app/flip/call/heads', (req, res) => {
 
 app.get('/app/flip/call/tails', (req, res) => {
     res.statusCode = 200;
+    res.statusMessage = 'OK'
 
-    const result = flipACoin("tails");
+    const result = flipACoin('tails');
 
     res.json(result)
 })

@@ -11,9 +11,7 @@ const server = app.listen(HTTP_PORT, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%', HTTP_PORT))
 });
 
-app.use(function (req, res) {
-    res.status(404).send('404 NOT FOUND')
-});
+
 
 app.get('/app/', (req, res) => {
     // Respond with status 200
@@ -111,3 +109,7 @@ function flipACoin(call) {
         return " call: " + call + ", flip: " + num + ", result: 'lose'";
     }
 }
+
+app.use(function (req, res) {
+    res.status(404).send('404 NOT FOUND')
+});

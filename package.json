@@ -5,11 +5,13 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.17.3",
-    "minimist": "^1.2.6"
+    "minimist": "^1.2.6",
+    "node": "^17.7.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node server.js --port=5555"
+    "test": "node server.js --port=5555",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
